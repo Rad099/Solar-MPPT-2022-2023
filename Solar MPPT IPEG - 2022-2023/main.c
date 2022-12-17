@@ -25,6 +25,8 @@ float prev_power_out;
 
 int main(void)
 {
+
+  // Device
   Device_init();
 
 
