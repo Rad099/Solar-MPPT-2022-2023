@@ -21,32 +21,117 @@ void configureADC(uint32_t base) {
     // enable
     ADC_enableConverter(base);
 
-    //DEVICE_DELAY_US(1000);
+    DEVICE_DELAY_US(1000);
 
 }
 
-void initPWMTrigger(void) {
+void continuousADCConfig(uint32_t adcBase, uint32_t channel) {
 
-    EPWM_disableADCTrigger(EPWM1_BASE, EPWM_SOC_A);
+        uint16_t acqps = 14;
 
-    EPWM_setADCTriggerSource(EPWM1_BASE, EPWM_SOC_A, EPWM_SOC_TBCTR_U_CMPA);
+        //
+        // Configure SOCs channel no. & acquisition window.
+        //
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER2, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER3, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER4, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER5, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER6, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER7, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER8, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER9, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER10, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER11, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER12, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER13, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER14, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
+        ADC_setupSOC(adcBase, ADC_SOC_NUMBER15, ADC_TRIGGER_SW_ONLY,
+                     (ADC_Channel)channel, acqps);
 
-    EPWM_setADCTriggerEventPrescale(EPWM1_BASE, EPWM_SOC_A, 1);
+        //
+        // Setup interrupt trigger for SOCs. ADCINT2 will trigger first 8 SOCs.
+        // ADCINT1 will trigger next 8 SOCs
+        //
 
-    // 10 Khz sampling rate
-    EPWM_setCounterCompareValue(EPWM1_BASE, EPWM_COUNTER_COMPARE_A, 100);
-    EPWM_setTimeBasePeriod(EPWM1_BASE, 1999);
+        //
+        // ADCINT2 trigger for SOC0-SOC7
+        //
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER0,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER1,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER2,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER3,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER4,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER5,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER6,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER7,
+                                   ADC_INT_SOC_TRIGGER_ADCINT2);
 
-    EPWM_setClockPrescaler(EPWM1_BASE, EPWM_CLOCK_DIVIDER_1, EPWM_HSCLOCK_DIVIDER_1);
+        //
+        // ADCINT1 trigger for SOC8-SOC15
+        //
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER8,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER9,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER10,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER11,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER12,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER13,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER14,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER15,
+                                   ADC_INT_SOC_TRIGGER_ADCINT1);
 
-    EPWM_setTimeBaseCounterMode(EPWM1_BASE, EPWM_COUNTER_MODE_STOP_FREEZE);
+        //
+        // Disable Interrupt flags
+        //
+        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER1);
+        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER2);
+        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER3);
+        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER4);
 
-}
+        //
+        // Enable continuous mode
+        //
+        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER1);
+        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER2);
+        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER3);
+        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER4);
 
-void configureSOCs(void) {
-
-    // minimum acquisition window for 12-bit res
-    //uint16_t min_acq_window = 14;
-
+        //
+        // Configure interrupt triggers
+        //
+        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER1, ADC_SOC_NUMBER6);
+        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER2, ADC_SOC_NUMBER14);
+        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER3, ADC_SOC_NUMBER7);
+        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER4, ADC_SOC_NUMBER15);
 
 }
