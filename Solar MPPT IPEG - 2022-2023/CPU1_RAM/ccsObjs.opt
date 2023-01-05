@@ -1,4 +1,5 @@
 "./adcConfig.obj"
+"./adcPWM.obj"
 "./main.obj"
 "./device/F2837xD_CodeStartBranch.obj"
 "./device/device.obj"

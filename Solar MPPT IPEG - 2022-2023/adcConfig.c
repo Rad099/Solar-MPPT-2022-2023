@@ -7,131 +7,66 @@
 
 #include "adcConfig.h"
 
-void configureADC(uint32_t base) {
+void configureADC(uint32_t adcBase) {
 
-    // sets ADCCLK
-    ADC_setPrescaler(base, ADC_CLK_DIV_4_0);
+    //
+    // Set ADCDLK divider to /4
+    //
+    ADC_setPrescaler(adcBase, ADC_CLK_DIV_4_0);
 
-    // sets mode to 12-bit single pin
-    ADC_setMode(base, ADC_RESOLUTION_12BIT, ADC_MODE_SINGLE_ENDED);
+    // set Vref to internal
+    //ADC_setVREF(ADCA_BASE, ADC_REFERENCE_INTERNAL, ADC_REFERENCE_3_3V);
 
-    // sets end of conversion to pulse
-    ADC_setInterruptPulseMode(base, ADC_PULSE_END_OF_CONV);
+    //
+    // Set resolution and signal mode (see #defines above) and load
+    // corresponding trims.
+    //
 
-    // enable
-    ADC_enableConverter(base);
+    ADC_setMode(adcBase, ADC_RESOLUTION_12BIT, ADC_MODE_SINGLE_ENDED);
 
+
+    //
+    // Set pulse positions to late
+    //
+    ADC_setInterruptPulseMode(adcBase, ADC_PULSE_END_OF_CONV);
+
+    //
+    // Power up the ADCs and then delay for 1 ms
+    //
+    ADC_enableConverter(adcBase);
+
+    //
+    // Delay for 1ms to allow ADC time to power up
+    //
     DEVICE_DELAY_US(1000);
 
 }
 
-void continuousADCConfig(uint32_t adcBase, uint32_t channel) {
+void initSOCs(void) {
 
-        uint16_t acqps = 14;
+        uint16_t acqps;
 
-        //
-        // Configure SOCs channel no. & acquisition window.
-        //
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER0, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER1, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER2, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER3, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER4, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER5, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER6, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER7, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER8, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER9, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER10, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER11, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER12, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER13, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER14, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
-        ADC_setupSOC(adcBase, ADC_SOC_NUMBER15, ADC_TRIGGER_SW_ONLY,
-                     (ADC_Channel)channel, acqps);
 
         //
-        // Setup interrupt trigger for SOCs. ADCINT2 will trigger first 8 SOCs.
-        // ADCINT1 will trigger next 8 SOCs
-        //
+        // Determine minimum acquisition window (in SYSCLKS) based on resolution
+        // TODO: confirm acquisition window
+        acqps = 14; // 75ns
 
-        //
-        // ADCINT2 trigger for SOC0-SOC7
-        //
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER0,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER1,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER2,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER3,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER4,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER5,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER6,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER7,
-                                   ADC_INT_SOC_TRIGGER_ADCINT2);
+        // Vin adc setup
+        ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_EPWM1_SOCA, ADC_CH_ADCIN0, acqps);
 
-        //
-        // ADCINT1 trigger for SOC8-SOC15
-        //
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER8,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER9,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER10,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER11,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER12,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER13,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER14,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
-        ADC_setInterruptSOCTrigger(adcBase, ADC_SOC_NUMBER15,
-                                   ADC_INT_SOC_TRIGGER_ADCINT1);
+        // configure interrupt for ADCA
+        //ADC_setInterruptSource(ADCA_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER0);
+        //ADC_enableInterrupt(ADCA_BASE, ADC_INT_NUMBER1);
+       // ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
 
-        //
-        // Disable Interrupt flags
-        //
-        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER1);
-        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER2);
-        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER3);
-        ADC_disableInterrupt(adcBase, ADC_INT_NUMBER4);
+        // Iin adc setup
+        ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER2, ADC_TRIGGER_EPWM1_SOCA, ADC_CH_ADCIN2, acqps);
 
-        //
-        // Enable continuous mode
-        //
-        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER1);
-        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER2);
-        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER3);
-        ADC_enableContinuousMode(adcBase, ADC_INT_NUMBER4);
-
-        //
-        // Configure interrupt triggers
-        //
-        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER1, ADC_SOC_NUMBER6);
-        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER2, ADC_SOC_NUMBER14);
-        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER3, ADC_SOC_NUMBER7);
-        ADC_setInterruptSource(adcBase, ADC_INT_NUMBER4, ADC_SOC_NUMBER15);
+        // configure interrupt for ADCB
+        ADC_setInterruptSource(ADCA_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER0);
+        ADC_setInterruptSource(ADCA_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER2);
+        ADC_enableInterrupt(ADCA_BASE, ADC_INT_NUMBER1);
+        ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
 
 }

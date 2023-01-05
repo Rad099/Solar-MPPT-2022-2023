@@ -9,13 +9,14 @@
 #include "epwm.h"
 #include "device.h"
 
+
 #ifndef ADCCONFIG_H_
 #define ADCCONFIG_H_
 
-void configureADC(uint32_t base);
+void configureADC(uint32_t adcbase);
 
 
-void continuousADCConfig(uint32_t base, uint32_t channel);
+void initSOCs(void);
 
 
 

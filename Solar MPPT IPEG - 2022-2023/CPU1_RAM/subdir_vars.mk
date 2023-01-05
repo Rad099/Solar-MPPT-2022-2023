@@ -13,26 +13,32 @@ C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd
 
 C_SRCS += \
 ../adcConfig.c \
+../adcPWM.c \
 ../main.c 
 
 C_DEPS += \
 ./adcConfig.d \
+./adcPWM.d \
 ./main.d 
 
 OBJS += \
 ./adcConfig.obj \
+./adcPWM.obj \
 ./main.obj 
 
 OBJS__QUOTED += \
 "adcConfig.obj" \
+"adcPWM.obj" \
 "main.obj" 
 
 C_DEPS__QUOTED += \
 "adcConfig.d" \
+"adcPWM.d" \
 "main.d" 
 
 C_SRCS__QUOTED += \
 "../adcConfig.c" \
+"../adcPWM.c" \
 "../main.c" 
 
 

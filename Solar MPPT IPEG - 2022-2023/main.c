@@ -1,18 +1,26 @@
 /**
  * main.c
  *
- * Ridwan Alrefai - 2022
+ * Ridwan Alrefai - 2022/2023
  * University of Illinois Chicago
  * Intelligent Power Electronics Laboratory - Chicago
  *
  */
 
 #include "driverlib.h"
-#include "device.h"
 #include "adcConfig.h"
+#include "adcPWM.h"
+#include "device.h"
+#include <stdio.h>
 
+//
+// Globals
+//
+#define EX_ADC_RESOLUTION       12
 
 // MPPT Variables
+uint16_t adcAResults1;
+uint16_t adcAResults2;
 float current_in;
 float current_out;
 float voltage_in;
@@ -23,9 +31,11 @@ float prev_power_in;
 float prev_power_out;
 
 
-int main(void)
+//
+// Main
+//
+void main(void)
 {
-
 
     //
     // Initialize device clock and peripherals
@@ -33,10 +43,9 @@ int main(void)
     Device_init();
 
     //
-    // Initialize GPIO and configure the GPIO pin as a push-pull output
+    // Disable pin locks and enable internal pullups.
     //
     Device_initGPIO();
-
 
     //
     // Initialize PIE and clear PIE registers. Disables CPU interrupts.
@@ -49,30 +58,57 @@ int main(void)
     //
     Interrupt_initVectorTable();
 
-    //
-    // Initialize ADC configurations for ADCA and ADCB
-    //
-    configureADC(ADCA_BASE);
-    configureADC(ADCD_BASE);
+    // initiliaze ADCs
+    configureADC(ADCA_BASE); // voltage adc base
+    //configureADC(ADCB_BASE); // current adc base
+
+    // initialize EPWM 1 for adc sampling
+    initEPWM1();
+
+
+    // initialize SOCs for adc conversions
+    initSOCs();
 
     //
-    // Setup continuous ADC
+    // Enable Global Interrupt (INTM) and realtime interrupt (DBGM)
     //
-    continuousADCConfig(ADCA_BASE, 0U);
-    continuousADCConfig(ADCA_BASE, 1U);
-
-
-
-
-
-
-
-
+    EINT;
+    ERTM;
 
     //
-    // Loop Forever
+    // Start ePWM1, enabling SOCA and putting the counter in up-count mode
     //
+    EPWM_enableADCTrigger(EPWM1_BASE, EPWM_SOC_A);
+    EPWM_setTimeBaseCounterMode(EPWM1_BASE, EPWM_COUNTER_MODE_UP);
 
+    do {
+
+        // Results
+        adcAResults1 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0); // voltage
+
+        adcAResults2 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER2); // current
+
+        // clear interrupt flag
+        ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
+
+        //
+        // Check if overflow has occurred
+        //
+        if(true == ADC_getInterruptOverflowStatus(ADCA_BASE, ADC_INT_NUMBER1))
+        {
+            ADC_clearInterruptOverflowStatus(ADCA_BASE, ADC_INT_NUMBER1);
+            ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
+        }
+
+        //
+        // Acknowledge the interrupt
+        //
+        Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP1);
+
+    } while(1);
 
 }
+
+
+
 

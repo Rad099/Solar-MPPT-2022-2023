@@ -11,6 +11,7 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./adcConfig.obj" \
+"./adcPWM.obj" \
 "./main.obj" \
 "./device/F2837xD_CodeStartBranch.obj" \
 "./device/device.obj" \
@@ -160,8 +161,8 @@ Solar\ MPPT\ IPEG\ -\ 2022-2023.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "adcConfig.obj" "main.obj" "device\F2837xD_CodeStartBranch.obj" "device\device.obj" 
-	-$(RM) "adcConfig.d" "main.d" "device\device.d" 
+	-$(RM) "adcConfig.obj" "adcPWM.obj" "main.obj" "device\F2837xD_CodeStartBranch.obj" "device\device.obj" 
+	-$(RM) "adcConfig.d" "adcPWM.d" "main.d" "device\device.d" 
 	-$(RM) "device\F2837xD_CodeStartBranch.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
