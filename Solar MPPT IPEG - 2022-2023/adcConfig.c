@@ -56,17 +56,16 @@ void initSOCs(void) {
         ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER0, ADC_TRIGGER_EPWM1_SOCA, ADC_CH_ADCIN0, acqps);
 
         // configure interrupt for ADCA
-        //ADC_setInterruptSource(ADCA_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER0);
-        //ADC_enableInterrupt(ADCA_BASE, ADC_INT_NUMBER1);
-       // ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
-
-        // Iin adc setup
-        ADC_setupSOC(ADCA_BASE, ADC_SOC_NUMBER2, ADC_TRIGGER_EPWM1_SOCA, ADC_CH_ADCIN2, acqps);
-
-        // configure interrupt for ADCB
         ADC_setInterruptSource(ADCA_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER0);
-        ADC_setInterruptSource(ADCA_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER2);
         ADC_enableInterrupt(ADCA_BASE, ADC_INT_NUMBER1);
         ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
+
+        // Iin adc setup
+        ADC_setupSOC(ADCB_BASE, ADC_SOC_NUMBER2, ADC_TRIGGER_EPWM1_SOCA, ADC_CH_ADCIN4, acqps);
+
+        // configure interrupt for ADCB
+        ADC_setInterruptSource(ADCB_BASE, ADC_INT_NUMBER1, ADC_SOC_NUMBER2);
+        ADC_enableInterrupt(ADCB_BASE, ADC_INT_NUMBER1);
+        ADC_clearInterruptStatus(ADCB_BASE, ADC_INT_NUMBER1);
 
 }

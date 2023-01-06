@@ -19,8 +19,8 @@
 #define EX_ADC_RESOLUTION       12
 
 // MPPT Variables
-uint16_t adcAResults1;
-uint16_t adcAResults2;
+uint16_t adcAResults;
+uint16_t adcBResults;
 float current_in;
 float current_out;
 float voltage_in;
@@ -60,7 +60,7 @@ void main(void)
 
     // initiliaze ADCs
     configureADC(ADCA_BASE); // voltage adc base
-    //configureADC(ADCB_BASE); // current adc base
+    configureADC(ADCB_BASE); // current adc base
 
     // initialize EPWM 1 for adc sampling
     initEPWM1();
@@ -84,21 +84,17 @@ void main(void)
     do {
 
         // Results
-        adcAResults1 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0); // voltage
+        adcAResults = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0); // voltage
 
-        adcAResults2 = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER2); // current
+        adcBResults = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER2); // current
+
+        voltage_in = adcAResults * (3.3/4096);
+        current_in = (adcBResults * (3.3/4096))*100;
+
+        power_in = voltage_in * current_in;
 
         // clear interrupt flag
         ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
-
-        //
-        // Check if overflow has occurred
-        //
-        if(true == ADC_getInterruptOverflowStatus(ADCA_BASE, ADC_INT_NUMBER1))
-        {
-            ADC_clearInterruptOverflowStatus(ADCA_BASE, ADC_INT_NUMBER1);
-            ADC_clearInterruptStatus(ADCA_BASE, ADC_INT_NUMBER1);
-        }
 
         //
         // Acknowledge the interrupt
