@@ -10,6 +10,7 @@
 #include "driverlib.h"
 #include "adcConfig.h"
 #include "adcPWM.h"
+#include "mpptAlgorithms.h"
 #include "device.h"
 #include <stdio.h>
 
@@ -22,9 +23,7 @@
 uint16_t adcAResults;
 uint16_t adcBResults;
 float current_in;
-float current_out;
 float voltage_in;
-float voltage_out;
 float power_in;
 float power_out;
 float prev_power_in;

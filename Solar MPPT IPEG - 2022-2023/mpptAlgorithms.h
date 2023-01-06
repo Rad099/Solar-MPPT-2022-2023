@@ -8,6 +8,8 @@
 #ifndef MPPTALGORITHMS_H_
 #define MPPTALGORITHMS_H_
 
+#include "device.h"
 
+void PertandObs(float power_in);
 
 #endif /* MPPTALGORITHMS_H_ */
