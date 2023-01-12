@@ -1,7 +1,7 @@
 ******************************************************************************
-             TMS320C2000 Linker PC v22.6.0                     
+             TMS320C2000 Linker Unix v22.6.0                   
 ******************************************************************************
->> Linked Thu Jan  5 22:59:41 2023
+>> Linked Thu Jan 12 11:26:11 2023
 
 OUTPUT FILE NAME:   <Solar MPPT IPEG - 2022-2023.out>
 ENTRY POINT SYMBOL: "code_start"  address: 00000000
@@ -39,7 +39,7 @@ PAGE 0:
 PAGE 1:
   BOOT_RSVD             00000002   00000121  00000000  00000121  RWIX
   RAMM1                 00000400   000003f8  00000100  000002f8  RWIX
-  RAMLS5                0000a800   00000800  0000039a  00000466  RWIX
+  RAMLS5                0000a800   00000800  0000036a  00000496  RWIX
   RAMD1                 0000b800   00000800  00000000  00000800  RWIX
   RAMGS0                0000c000   00001000  00000000  00001000  RWIX
   RAMGS1                0000d000   00001000  00000000  00001000  RWIX
@@ -73,7 +73,8 @@ codestart
                   00000000    00000002     F2837xD_CodeStartBranch.obj (codestart)
 
 .cinit     0    00000128    0000001c     
-                  00000128    0000000a     (.cinit..data.load) [load image, compression = lzss]
+                  00000128    00000009     (.cinit..data.load) [load image, compression = lzss]
+                  00000131    00000001     --HOLE-- [fill = 0]
                   00000132    00000006     (__TI_handler_table)
                   00000138    00000004     (.cinit..bss.load) [load image, compression = zero_init]
                   0000013c    00000008     (__TI_cinit_table)
@@ -83,31 +84,31 @@ codestart
 .stack     1    00000400    00000100     UNINITIALIZED
                   00000400    00000100     --HOLE--
 
-.bss       1    0000ab8c    0000000e     UNINITIALIZED
-                  0000ab8c    0000000e     main.obj (.bss)
+.bss       1    0000ab5c    0000000e     UNINITIALIZED
+                  0000ab5c    0000000e     main.obj (.bss)
 
 .init_array 
 *          0    00000123    00000000     UNINITIALIZED
 
-.const     1    0000a800    0000037c     
+.const     1    0000a800    0000034c     
                   0000a800    000000c2     driverlib_eabi.lib : sysctl.obj (.const:.string)
-                  0000a8c2    000000c1     main.obj (.const:.string)
-                  0000a983    00000001     --HOLE-- [fill = 0]
-                  0000a984    000000bc     driverlib_eabi.lib : gpio.obj (.const:.string)
-                  0000aa40    00000061     adcPWM.obj (.const:.string)
-                  0000aaa1    00000001     --HOLE-- [fill = 0]
-                  0000aaa2    00000060     adcConfig.obj (.const:.string)
-                  0000ab02    0000005d     driverlib_eabi.lib : adc.obj (.const:.string)
-                  0000ab5f    00000001     --HOLE-- [fill = 0]
-                  0000ab60    00000013     device.obj (.const:.string)
-                  0000ab73    00000001     --HOLE-- [fill = 0]
-                  0000ab74    00000008     main.obj (.const)
+                  0000a8c2    000000bc                        : gpio.obj (.const:.string)
+                  0000a97e    000000a9     main.obj (.const:.string)
+                  0000aa27    00000001     --HOLE-- [fill = 0]
+                  0000aa28    0000005d     driverlib_eabi.lib : adc.obj (.const:.string)
+                  0000aa85    00000001     --HOLE-- [fill = 0]
+                  0000aa86    00000055     adcPWM.obj (.const:.string)
+                  0000aadb    00000001     --HOLE-- [fill = 0]
+                  0000aadc    00000054     adcConfig.obj (.const:.string)
+                  0000ab30    00000013     device.obj (.const:.string)
+                  0000ab43    00000001     --HOLE-- [fill = 0]
+                  0000ab44    00000008     main.obj (.const)
 
-.data      1    0000ab7c    00000010     UNINITIALIZED
-                  0000ab7c    00000002     rts2800_fpu32_eabi.lib : _lock.c.obj (.data:_lock)
-                  0000ab7e    00000002                            : _lock.c.obj (.data:_unlock)
-                  0000ab80    00000006     device.obj (.data)
-                  0000ab86    00000006     rts2800_fpu32_eabi.lib : exit.c.obj (.data)
+.data      1    0000ab4c    00000010     UNINITIALIZED
+                  0000ab4c    00000006     device.obj (.data)
+                  0000ab52    00000006     rts2800_fpu32_eabi.lib : exit.c.obj (.data)
+                  0000ab58    00000002                            : _lock.c.obj (.data:_lock)
+                  0000ab5a    00000002                            : _lock.c.obj (.data:_unlock)
 
 .TI.ramfunc 
 *          0    00000123    00000004     
@@ -185,28 +186,20 @@ MODULE SUMMARY
 
        Module                        code   ro data   rw data
        ------                        ----   -------   -------
-    .\
-       main.obj                      318    201       14     
-       adcPWM.obj                    405    97        0      
-       adcConfig.obj                 314    96        0      
+    ./
+       main.obj                      318    177       14     
+       adcPWM.obj                    405    85        0      
+       adcConfig.obj                 314    84        0      
     +--+-----------------------------+------+---------+---------+
-       Total:                        1037   394       14     
+       Total:                        1037   346       14     
                                                              
-    .\device\
+    ./device/
        device.obj                    1020   19        6      
        F2837xD_CodeStartBranch.obj   10     0         0      
     +--+-----------------------------+------+---------+---------+
        Total:                        1030   19        6      
                                                              
-    C:\Users\Ridwan Alrefai\Desktop\ti\c2000\C2000Ware_4_01_00_00\driverlib\f2837xd\driverlib\ccs\Debug\driverlib_eabi.lib
-       sysctl.obj                    1172   194       0      
-       gpio.obj                      230    188       0      
-       adc.obj                       293    93        0      
-       interrupt.obj                 122    0         0      
-    +--+-----------------------------+------+---------+---------+
-       Total:                        1817   475       0      
-                                                             
-    D:\ti\ccs1210\ccs\tools\compiler\ti-cgt-c2000_22.6.0.LTS\lib\rts2800_fpu32_eabi.lib
+    /Applications/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib/rts2800_fpu32_eabi.lib
        fs_div28.asm.obj              136    0         0      
        fd_mpy28.asm.obj              131    0         0      
        exit.c.obj                    41     0         6      
@@ -225,17 +218,25 @@ MODULE SUMMARY
     +--+-----------------------------+------+---------+---------+
        Total:                        552    0         10     
                                                              
-       Stack:                        0      0         256    
-       Linker Generated:             0      28        0      
+    /Users/radwanalrefai/Desktop/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/ccs/Debug/driverlib_eabi.lib
+       sysctl.obj                    1172   194       0      
+       gpio.obj                      230    188       0      
+       adc.obj                       293    93        0      
+       interrupt.obj                 122    0         0      
     +--+-----------------------------+------+---------+---------+
-       Grand Total:                  4436   916       286    
+       Total:                        1817   475       0      
+                                                             
+       Stack:                        0      0         256    
+       Linker Generated:             0      27        0      
+    +--+-----------------------------+------+---------+---------+
+       Grand Total:                  4436   867       286    
 
 
 LINKER GENERATED COPY TABLES
 
 __TI_cinit_table @ 0000013c records: 2, size/record: 4, table size: 8
-	.data: load addr=00000128, load size=0000000a bytes, run addr=0000ab7c, run size=00000010 bytes, compression=lzss
-	.bss: load addr=00000138, load size=00000004 bytes, run addr=0000ab8c, run size=0000000e bytes, compression=zero_init
+	.data: load addr=00000128, load size=00000009 bytes, run addr=0000ab4c, run size=00000010 bytes, compression=lzss
+	.bss: load addr=00000138, load size=00000004 bytes, run addr=0000ab5c, run size=0000000e bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
@@ -252,23 +253,22 @@ address     data page           name
 --------    ----------------    ----
 00000400      10 (00000400)     __stack
 
-0000ab7c     2ad (0000ab40)     _lock
-0000ab7e     2ad (0000ab40)     _unlock
-
-0000ab80     2ae (0000ab80)     Example_Result
-0000ab82     2ae (0000ab80)     Example_PassCount
-0000ab84     2ae (0000ab80)     Example_Fail
-0000ab86     2ae (0000ab80)     __TI_enable_exit_profile_output
-0000ab88     2ae (0000ab80)     __TI_cleanup_ptr
-0000ab8a     2ae (0000ab80)     __TI_dtors_ptr
-0000ab8c     2ae (0000ab80)     adcAResults
-0000ab8d     2ae (0000ab80)     adcBResults
-0000ab8e     2ae (0000ab80)     current_in
-0000ab90     2ae (0000ab80)     voltage_in
-0000ab92     2ae (0000ab80)     power_in
-0000ab94     2ae (0000ab80)     power_out
-0000ab96     2ae (0000ab80)     prev_power_in
-0000ab98     2ae (0000ab80)     prev_power_out
+0000ab4c     2ad (0000ab40)     Example_Result
+0000ab4e     2ad (0000ab40)     Example_PassCount
+0000ab50     2ad (0000ab40)     Example_Fail
+0000ab52     2ad (0000ab40)     __TI_enable_exit_profile_output
+0000ab54     2ad (0000ab40)     __TI_cleanup_ptr
+0000ab56     2ad (0000ab40)     __TI_dtors_ptr
+0000ab58     2ad (0000ab40)     _lock
+0000ab5a     2ad (0000ab40)     _unlock
+0000ab5c     2ad (0000ab40)     adcAResults
+0000ab5d     2ad (0000ab40)     adcBResults
+0000ab5e     2ad (0000ab40)     current_in
+0000ab60     2ad (0000ab40)     voltage_in
+0000ab62     2ad (0000ab40)     power_in
+0000ab64     2ad (0000ab40)     power_out
+0000ab66     2ad (0000ab40)     prev_power_in
+0000ab68     2ad (0000ab40)     prev_power_out
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -287,9 +287,9 @@ page  address   name
 0     0000b1f9  Device_enableUnbondedGPIOPullupsFor176Pin
 0     0000b0ab  Device_init                              
 0     0000b1d8  Device_initGPIO                          
-1     0000ab84  Example_Fail                             
-1     0000ab82  Example_PassCount                        
-1     0000ab80  Example_Result                           
+1     0000ab50  Example_Fail                             
+1     0000ab4e  Example_PassCount                        
+1     0000ab4c  Example_Result                           
 0     0000b3fb  Example_done                             
 0     0000b3f6  Example_setResultFail                    
 0     0000b3f1  Example_setResultPass                    
@@ -314,11 +314,11 @@ page  address   name
 1     00000500  __TI_STACK_END                           
 abs   00000100  __TI_STACK_SIZE                          
 0     000086dc  __TI_auto_init_nobinit_nopinit           
-1     0000ab88  __TI_cleanup_ptr                         
+1     0000ab54  __TI_cleanup_ptr                         
 0     000086ae  __TI_decompress_lzss                     
 0     00008939  __TI_decompress_none                     
-1     0000ab8a  __TI_dtors_ptr                           
-1     0000ab86  __TI_enable_exit_profile_output          
+1     0000ab56  __TI_dtors_ptr                           
+1     0000ab52  __TI_enable_exit_profile_output          
 abs   ffffffff  __TI_pprof_out_hndl                      
 abs   ffffffff  __TI_prof_data_size                      
 abs   ffffffff  __TI_prof_data_start                     
@@ -332,29 +332,29 @@ n/a   UNDEFED   __c_args__
 1     00000400  __stack                                  
 0     00008908  _args_main                               
 0     00008868  _c_int00                                 
-1     0000ab7c  _lock                                    
+1     0000ab58  _lock                                    
 0     00008930  _nop                                     
 0     0000892c  _register_lock                           
 0     00008928  _register_unlock                         
 0     000087ff  _system_post_cinit                       
 0     0000894c  _system_pre_init                         
-1     0000ab7e  _unlock                                  
+1     0000ab5a  _unlock                                  
 0     00008707  abort                                    
-1     0000ab8c  adcAResults                              
-1     0000ab8d  adcBResults                              
+1     0000ab5c  adcAResults                              
+1     0000ab5d  adcBResults                              
 0     00000000  code_start                               
 0     00008228  configureADC                             
-1     0000ab8e  current_in                               
+1     0000ab5e  current_in                               
 0     00008709  exit                                     
 0     0000b76f  initEPWM1                                
 0     00008240  initSOCs                                 
 0     000080be  main                                     
 0     000087d4  memcpy                                   
-1     0000ab92  power_in                                 
-1     0000ab94  power_out                                
-1     0000ab96  prev_power_in                            
-1     0000ab98  prev_power_out                           
-1     0000ab90  voltage_in                               
+1     0000ab62  power_in                                 
+1     0000ab64  power_out                                
+1     0000ab66  prev_power_in                            
+1     0000ab68  prev_power_out                           
+1     0000ab60  voltage_in                               
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -420,22 +420,22 @@ page  address   name
 0     0000b798  SysCtl_getDeviceParametric               
 1     00000400  __stack                                  
 1     00000500  __TI_STACK_END                           
-1     0000ab7c  _lock                                    
-1     0000ab7e  _unlock                                  
-1     0000ab80  Example_Result                           
-1     0000ab82  Example_PassCount                        
-1     0000ab84  Example_Fail                             
-1     0000ab86  __TI_enable_exit_profile_output          
-1     0000ab88  __TI_cleanup_ptr                         
-1     0000ab8a  __TI_dtors_ptr                           
-1     0000ab8c  adcAResults                              
-1     0000ab8d  adcBResults                              
-1     0000ab8e  current_in                               
-1     0000ab90  voltage_in                               
-1     0000ab92  power_in                                 
-1     0000ab94  power_out                                
-1     0000ab96  prev_power_in                            
-1     0000ab98  prev_power_out                           
+1     0000ab4c  Example_Result                           
+1     0000ab4e  Example_PassCount                        
+1     0000ab50  Example_Fail                             
+1     0000ab52  __TI_enable_exit_profile_output          
+1     0000ab54  __TI_cleanup_ptr                         
+1     0000ab56  __TI_dtors_ptr                           
+1     0000ab58  _lock                                    
+1     0000ab5a  _unlock                                  
+1     0000ab5c  adcAResults                              
+1     0000ab5d  adcBResults                              
+1     0000ab5e  current_in                               
+1     0000ab60  voltage_in                               
+1     0000ab62  power_in                                 
+1     0000ab64  power_out                                
+1     0000ab66  prev_power_in                            
+1     0000ab68  prev_power_out                           
 abs   00000100  __TI_STACK_SIZE                          
 abs   ffffffff  __TI_pprof_out_hndl                      
 abs   ffffffff  __TI_prof_data_size                      
