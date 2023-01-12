@@ -11,6 +11,7 @@
 #include "adcConfig.h"
 #include "adcPWM.h"
 #include "mpptAlgorithms.h"
+#include "DutyCyclePWM.h"
 #include "device.h"
 #include <stdio.h>
 
@@ -20,6 +21,7 @@
 #define EX_ADC_RESOLUTION       12
 
 // MPPT Variables
+
 uint16_t adcAResults;
 uint16_t adcBResults;
 float current_in;
@@ -100,7 +102,7 @@ void main(void)
         //
         Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP1);
 
-        // Testing Github Push
+
 
     } while(1);
 

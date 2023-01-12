@@ -87,6 +87,8 @@ main.obj: /Users/radwanalrefai/Desktop/workspace_v12/Solar-MPPT-2022-2023/Solar\
 main.obj: ../adcPWM.h
 main.obj: ../mpptAlgorithms.h
 main.obj: /Users/radwanalrefai/Desktop/workspace_v12/Solar-MPPT-2022-2023/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h
+main.obj: ../DutyCyclePWM.h
+main.obj: /Users/radwanalrefai/Desktop/workspace_v12/Solar-MPPT-2022-2023/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h
 main.obj: /Users/radwanalrefai/Desktop/workspace_v12/Solar-MPPT-2022-2023/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h
 main.obj: /Applications/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdio.h
 main.obj: /Applications/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdarg.h
@@ -262,6 +264,10 @@ main.obj: /Applications/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/in
 ../adcPWM.h:
 
 ../mpptAlgorithms.h:
+
+/Users/radwanalrefai/Desktop/workspace_v12/Solar-MPPT-2022-2023/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h:
+
+../DutyCyclePWM.h:
 
 /Users/radwanalrefai/Desktop/workspace_v12/Solar-MPPT-2022-2023/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h:
 
