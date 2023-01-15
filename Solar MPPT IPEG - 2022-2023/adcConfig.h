@@ -5,9 +5,7 @@
  *      Author: Ridwan Alrefai
  */
 
-#include "adc.h"
-#include "epwm.h"
-#include "device.h"
+#include "ProjectFiles.h"
 
 
 #ifndef ADCCONFIG_H_

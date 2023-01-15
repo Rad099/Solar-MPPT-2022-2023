@@ -1,0 +1,26 @@
+/*
+ * DutyCyclePWM.c
+ *
+ *  Created on: Jan 13, 2023
+ *      Author: Ridwan Alrefai
+ */
+
+#include "DutyCyclePWM.h"
+
+
+
+void init_dutyCycle_pwm(void) {
+
+    EPWM_setTimeBasePeriod(EPWM2_BASE, 2000U);
+    EPWM_setPhaseShift(EPWM2_BASE, 0U);
+    EPWM_setTimeBaseCounter(EPWM2_BASE, 0U);
+
+}
+
+__interrupt void epwm_duty_ISR(void) {
+
+}
+
+void update_dutyCycle(epwm_data *data) {
+
+}

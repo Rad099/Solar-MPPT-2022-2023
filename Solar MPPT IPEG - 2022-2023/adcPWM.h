@@ -8,7 +8,7 @@
 #ifndef ADCPWM_H_
 #define ADCPWM_H_
 
-#include "EPWM.h"
+#include "ProjectFiles.h"
 
 
 void initEPWM1(void);

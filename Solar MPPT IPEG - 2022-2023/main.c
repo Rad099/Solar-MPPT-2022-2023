@@ -7,13 +7,8 @@
  *
  */
 
-#include "driverlib.h"
-#include "adcConfig.h"
-#include "adcPWM.h"
-#include "mpptAlgorithms.h"
-#include "DutyCyclePWM.h"
-#include "device.h"
-#include <stdio.h>
+#include "ProjectFiles.h"
+
 
 //
 // Globals
@@ -90,7 +85,7 @@ void main(void)
         adcBResults = ADC_readResult(ADCBRESULT_BASE, ADC_SOC_NUMBER2); // current
 
         voltage_in = adcAResults * (3.3/4096);
-        current_in = (adcBResults * (3.3/4096))*100;
+        current_in = adcBResults * (3.3/4096);
 
         power_in = voltage_in * current_in;
 

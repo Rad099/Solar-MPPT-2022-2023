@@ -1,0 +1,40 @@
+/*
+ * DutyCyclePWM.c
+ *
+ *  Created on: Jan 13, 2023
+ *      Author: Ridwan Alrefai
+ */
+
+#include "DutyCyclePWM.h"
+
+
+
+void init_dutyCycle_pwm(void) {
+
+    EPWM_setTimeBasePeriod(EPWM2_BASE, 2000U);
+    EPWM_setPhaseShift(EPWM2_BASE, 0U);
+    EPWM_setTimeBaseCounter(EPWM2_BASE, 0U);
+
+
+    EPWM_setCounterCompareValue(EPWM2_BASE,
+                                EPWM_COUNTER_COMPARE_A,
+                                50U);
+    EPWM_setCounterCompareValue(EPWM2_BASE,
+                                EPWM_COUNTER_COMPARE_B,
+                                50U);
+    //
+    // Set-up counter mode
+    //
+    EPWM_setTimeBaseCounterMode(EPWM2_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_disablePhaseShiftLoad(EPWM2_BASE);
+    EPWM_setClockPrescaler(EPWM2_BASE, EPWM_CLOCK_DIVIDER_1, EPWM_HSCLOCK_DIVIDER_1);
+
+}
+
+__interrupt void epwm_duty_ISR(void) {
+
+}
+
+void update_dutyCycle(epwm_data *data) {
+
+}

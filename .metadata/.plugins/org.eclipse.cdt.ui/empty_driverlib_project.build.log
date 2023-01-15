@@ -1,0 +1,28 @@
+
+**** Build of configuration CPU1_RAM for project empty_driverlib_project ****
+
+"D:\\ti\\ccs1210\\ccs\\utils\\bin\\gmake" -k -j 20 all -O 
+ 
+Building file: "../device/F2837xD_CodeStartBranch.asm"
+Invoking: C2000 Compiler
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project" --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project/device" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib" --include_path="D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="device/F2837xD_CodeStartBranch.d_raw" --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project/CPU1_RAM/syscfg" --obj_directory="device"  "../device/F2837xD_CodeStartBranch.asm"
+Finished building: "../device/F2837xD_CodeStartBranch.asm"
+ 
+Building file: "../main.c"
+Invoking: C2000 Compiler
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project" --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project/device" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib" --include_path="D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw" --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project/CPU1_RAM/syscfg"  "../main.c"
+Finished building: "../main.c"
+ 
+Building file: "../device/device.c"
+Invoking: C2000 Compiler
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project" --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project/device" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib" --include_path="D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="device/device.d_raw" --include_path="D:/Users/Ridwan Alrefai/workspace_v12/empty_driverlib_project/CPU1_RAM/syscfg" --obj_directory="device"  "../device/device.c"
+Finished building: "../device/device.c"
+ 
+Building target: "empty_driverlib_project.out"
+Invoking: C2000 Linker
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --define=DEBUG --define=CPU1 --diag_suppress=10063 --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"empty_driverlib_project.map" --stack_size=0x100 --warn_sections -i"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="empty_driverlib_project_linkInfo.xml" --entry_point=code_start --rom_model -o "empty_driverlib_project.out" "./main.obj" "./device/F2837xD_CodeStartBranch.obj" "./device/device.obj" "../2837xD_RAM_lnk_cpu1.cmd" "C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib"  -llibc.a 
+<Linking>
+Finished building target: "empty_driverlib_project.out"
+ 
+
+**** Build Finished ****

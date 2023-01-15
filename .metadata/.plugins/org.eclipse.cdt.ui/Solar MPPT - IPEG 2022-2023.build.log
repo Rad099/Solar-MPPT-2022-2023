@@ -1,0 +1,134 @@
+
+**** Build of configuration Debug for project Solar MPPT - IPEG 2022-2023 ****
+
+"D:\\ti\\ccs1210\\ccs\\utils\\bin\\gmake" -k -j 20 all -O 
+ 
+Building file: "../Driver/F2837xD_CodeStartBranch.asm"
+Invoking: C2000 Compiler
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 --include_path="D:/Users/Ridwan Alrefai/Documents/GitHub/Solar-MPPT-2022-2023" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/docs/common/include" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/include" --include_path="D:/Users/Ridwan Alrefai/Documents/GitHub/Solar-MPPT-2022-2023/Driver" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib" --include_path="D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --define=CPU1 --define=DUAL_HEADERS --define=_FLASH --define=DEBUG -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="Driver/F2837xD_CodeStartBranch.d_raw" --obj_directory="Driver"  "../Driver/F2837xD_CodeStartBranch.asm"
+Finished building: "../Driver/F2837xD_CodeStartBranch.asm"
+ 
+Building file: "../main.c"
+Invoking: C2000 Compiler
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 --include_path="D:/Users/Ridwan Alrefai/Documents/GitHub/Solar-MPPT-2022-2023" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/docs/common/include" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/include" --include_path="D:/Users/Ridwan Alrefai/Documents/GitHub/Solar-MPPT-2022-2023/Driver" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib" --include_path="D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --define=CPU1 --define=DUAL_HEADERS --define=_FLASH --define=DEBUG -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+Finished building: "../main.c"
+ 
+Building file: "../Driver/device.c"
+Invoking: C2000 Compiler
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 --include_path="D:/Users/Ridwan Alrefai/Documents/GitHub/Solar-MPPT-2022-2023" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/docs/common/include" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/include" --include_path="D:/Users/Ridwan Alrefai/Documents/GitHub/Solar-MPPT-2022-2023/Driver" --include_path="C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib" --include_path="D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --define=CPU1 --define=DUAL_HEADERS --define=_FLASH --define=DEBUG -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi --preproc_with_compile --preproc_dependency="Driver/device.d_raw" --obj_directory="Driver"  "../Driver/device.c"
+Finished building: "../Driver/device.c"
+ 
+Building target: "Solar MPPT - IPEG 2022-2023.out"
+Invoking: C2000 Linker
+"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 --define=CPU1 --define=DUAL_HEADERS --define=_FLASH --define=DEBUG -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=coffabi -z -m"Solar MPPT - IPEG 2022-2023.map" --stack_size=0x200 --warn_sections -i"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/lib" -i"D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="Solar MPPT - IPEG 2022-2023_linkInfo.xml" --rom_model -o "Solar MPPT - IPEG 2022-2023.out" "./main.obj" "./Driver/F2837xD_CodeStartBranch.obj" "./Driver/device.obj" "../2837x_FLASH_lnk_cpu1.cmd" "C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/ccs/Debug/driverlib.lib" "C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu1.cmd" "C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd" "C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_nonBIOS_cpu1.cmd" "C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_nonBIOS_cpu2.cmd"  -llibc.a 
+<Linking>
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 5: error #10263: ACCESSPROTECTION memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 5: error #10264: ACCESSPROTECTION memory range overlaps existing memory range ACCESSPROTECTION
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 6: error #10263: ADCA memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 6: error #10264: ADCA memory range overlaps existing memory range ADCA
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 7: error #10263: ADCB memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 7: error #10264: ADCB memory range overlaps existing memory range ADCB
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 8: error #10263: ADCC memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 8: error #10264: ADCC memory range overlaps existing memory range ADCC
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 9: error #10263: ADCD memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 9: error #10264: ADCD memory range overlaps existing memory range ADCD
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 10: error #10263: ADCARESULT memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 10: error #10264: ADCARESULT memory range overlaps existing memory range ADCARESULT
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 11: error #10263: ADCBRESULT memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 11: error #10264: ADCBRESULT memory range overlaps existing memory range ADCBRESULT
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 12: error #10263: ADCCRESULT memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 12: error #10264: ADCCRESULT memory range overlaps existing memory range ADCCRESULT
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 13: error #10263: ADCDRESULT memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 13: error #10264: ADCDRESULT memory range overlaps existing memory range ADCDRESULT
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 14: error #10263: CANA memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 14: error #10264: CANA memory range overlaps existing memory range CANA
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 15: error #10263: CANB memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 15: error #10264: CANB memory range overlaps existing memory range CANB
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 16: error #10263: CLA1 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 16: error #10264: CLA1 memory range overlaps existing memory range CLA1
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 17: error #10263: CLB1DATAEXCH memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 17: error #10264: CLB1DATAEXCH memory range overlaps existing memory range CLB1DATAEXCH
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 18: error #10263: CLB2DATAEXCH memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 18: error #10264: CLB2DATAEXCH memory range overlaps existing memory range CLB2DATAEXCH
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 19: error #10263: CLB3DATAEXCH memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 19: error #10264: CLB3DATAEXCH memory range overlaps existing memory range CLB3DATAEXCH
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 20: error #10263: CLB4DATAEXCH memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 20: error #10264: CLB4DATAEXCH memory range overlaps existing memory range CLB4DATAEXCH
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 21: error #10263: CLB1LOGICCFG memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 21: error #10264: CLB1LOGICCFG memory range overlaps existing memory range CLB1LOGICCFG
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 22: error #10263: CLB2LOGICCFG memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 22: error #10264: CLB2LOGICCFG memory range overlaps existing memory range CLB2LOGICCFG
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 23: error #10263: CLB3LOGICCFG memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 23: error #10264: CLB3LOGICCFG memory range overlaps existing memory range CLB3LOGICCFG
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 24: error #10263: CLB4LOGICCFG memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 24: error #10264: CLB4LOGICCFG memory range overlaps existing memory range CLB4LOGICCFG
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 25: error #10263: CLB1LOGICCTRL memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 25: error #10264: CLB1LOGICCTRL memory range overlaps existing memory range CLB1LOGICCTRL
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 26: error #10263: CLB2LOGICCTRL memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 26: error #10264: CLB2LOGICCTRL memory range overlaps existing memory range CLB2LOGICCTRL
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 27: error #10263: CLB3LOGICCTRL memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 27: error #10264: CLB3LOGICCTRL memory range overlaps existing memory range CLB3LOGICCTRL
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 28: error #10263: CLB4LOGICCTRL memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 28: error #10264: CLB4LOGICCTRL memory range overlaps existing memory range CLB4LOGICCTRL
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 29: error #10263: CLKCFG memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 29: error #10264: CLKCFG memory range overlaps existing memory range CLKCFG
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 30: error #10263: CMPSS1 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 30: error #10264: CMPSS1 memory range overlaps existing memory range CMPSS1
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 31: error #10263: CMPSS2 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 31: error #10264: CMPSS2 memory range overlaps existing memory range CMPSS2
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 32: error #10263: CMPSS3 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 32: error #10264: CMPSS3 memory range overlaps existing memory range CMPSS3
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 33: error #10263: CMPSS4 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 33: error #10264: CMPSS4 memory range overlaps existing memory range CMPSS4
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 34: error #10263: CMPSS5 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 34: error #10264: CMPSS5 memory range overlaps existing memory range CMPSS5
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 35: error #10263: CMPSS6 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 35: error #10264: CMPSS6 memory range overlaps existing memory range CMPSS6
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 36: error #10263: CMPSS7 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 36: error #10264: CMPSS7 memory range overlaps existing memory range CMPSS7
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 37: error #10263: CMPSS8 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 37: error #10264: CMPSS8 memory range overlaps existing memory range CMPSS8
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 38: error #10263: CPUTIMER0 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 38: error #10264: CPUTIMER0 memory range overlaps existing memory range CPUTIMER0
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 39: error #10263: CPUTIMER1 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 39: error #10264: CPUTIMER1 memory range overlaps existing memory range CPUTIMER1
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 40: error #10263: CPUTIMER2 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 40: error #10264: CPUTIMER2 memory range overlaps existing memory range CPUTIMER2
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 41: error #10263: CPUSYS memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 41: error #10264: CPUSYS memory range overlaps existing memory range CPUSYS
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 42: error #10263: DACA memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 42: error #10264: DACA memory range overlaps existing memory range DACA
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 43: error #10263: DACB memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 43: error #10264: DACB memory range overlaps existing memory range DACB
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 44: error #10263: DACC memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 44: error #10264: DACC memory range overlaps existing memory range DACC
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 45: error #10263: DCSMCOMMON memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 45: error #10264: DCSMCOMMON memory range overlaps existing memory range DCSMCOMMON
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 46: error #10263: DCSMZ1 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 46: error #10264: DCSMZ1 memory range overlaps existing memory range DCSMZ1
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 47: error #10263: DCSMZ2 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 47: error #10264: DCSMZ2 memory range overlaps existing memory range DCSMZ2
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 48: error #10263: DMACLASRCSEL memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 48: error #10264: DMACLASRCSEL memory range overlaps existing memory range DMACLASRCSEL
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 49: error #10263: DMA memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 49: error #10264: DMA memory range overlaps existing memory range DMA
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 50: error #10263: ECAP1 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 50: error #10264: ECAP1 memory range overlaps existing memory range ECAP1
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 51: error #10263: ECAP2 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 51: error #10264: ECAP2 memory range overlaps existing memory range ECAP2
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 52: error #10263: ECAP3 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 52: error #10264: ECAP3 memory range overlaps existing memory range ECAP3
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 53: error #10263: ECAP4 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 53: error #10264: ECAP4 memory range overlaps existing memory range ECAP4
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 54: error #10263: ECAP5 memory range has already been specified
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 54: error #10264: ECAP5 memory range overlaps existing memory range ECAP5
+"C:/Users/Ridwan Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/headers/cmd/F2837xD_Headers_BIOS_cpu2.cmd", line 55: error #10263: ECAP6 memory range has already been specified
+fatal error #99900: error limit reached; 100 errors detected
+ 
+>> Compilation failure
+makefile:152: recipe for target 'Solar MPPT - IPEG 2022-2023.out' failed
+gmake[1]: *** [Solar MPPT - IPEG 2022-2023.out] Error 1
+makefile:148: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
