@@ -19,10 +19,8 @@ void initEPWM1(void) {
 
     //
     // 10Khz sampling rate TODO: confirm rate
-    // logic: desired freq = 20Khz. period = 10k. to make duty-cycle of 50%
-    // compare value should be period/2
-    EPWM_setCounterCompareValue(EPWM1_BASE, EPWM_COUNTER_COMPARE_A, 5000);
-    EPWM_setTimeBasePeriod(EPWM1_BASE, 10000);
+    EPWM_setCounterCompareValue(EPWM1_BASE, EPWM_COUNTER_COMPARE_A, 100);
+    EPWM_setTimeBasePeriod(EPWM1_BASE, 1999);
 
 
     //
