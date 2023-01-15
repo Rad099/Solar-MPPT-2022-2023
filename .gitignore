@@ -1,0 +1,41 @@
+# Compiled object files
+*.o
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.map
+
+# CCS generated files
+*.ccxml
+*.ccsproject
+*.ccsrepo
+*.cproject
+*.project
+.settings/
+
+# TMS320F28379D specific files
+*.out
+*.mem
+*.elf
+*.map
+*.html
+*.asm
+*.cmd
