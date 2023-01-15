@@ -7,6 +7,21 @@
 
 #include "DutyCyclePWM.h"
 
+typedef struct
+{
+    uint16_t epwmCompADirection;
+    uint16_t epwmCompBDirection;
+    uint16_t epwmTimerIntCount;
+    uint16_t epwmMaxCompA;
+    uint16_t epwmMinCompA;
+    uint16_t epwmMaxCompB;
+    uint16_t epwmMinCompB;
+} epwmInformation;
+
+
+epwmInformation epwmInfo;
+
+
 
 
 
@@ -71,6 +86,14 @@ void init_dutyCycle_pwm(void) {
     EPWM_enableInterrupt(EPWM2_BASE);
     EPWM_setInterruptEventCount(EPWM2_BASE, 3U);
 
+    epwmInfo.epwmCompADirection = 1U;
+    epwmInfo.epwmCompBDirection = 0U;
+    epwmInfo.epwmTimerIntCount = 0U;
+    epwmInfo.epwmMaxCompA = 1950U;
+    epwmInfo.epwmMinCompA = 50U;
+    epwmInfo.epwmMaxCompB = 1950U;
+    epwmInfo.epwmMinCompB = 50U;
+
 }
 
 __interrupt void epwm_duty_ISR(void) {
@@ -87,6 +110,9 @@ void update_dutyCycle(void) {
 
     compAValue = EPWM_getCounterCompareValue(EPWM2_BASE, EPWM_COUNTER_COMPARE_A);
     compBValue = EPWM_getCounterCompareValue(EPWM2_BASE, EPWM_COUNTER_COMPARE_B);
+
+
+
 
 
 }
