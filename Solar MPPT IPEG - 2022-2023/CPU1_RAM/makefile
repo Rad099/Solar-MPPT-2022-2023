@@ -14,6 +14,7 @@ ORDERED_OBJS += \
 "./adcConfig.obj" \
 "./adcPWM.obj" \
 "./main.obj" \
+"./mpptAlgorithms.obj" \
 "./device/F2837xD_CodeStartBranch.obj" \
 "./device/device.obj" \
 "../2837xD_RAM_lnk_cpu1.cmd" \
@@ -162,8 +163,8 @@ Solar\ MPPT\ IPEG\ -\ 2022-2023.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DutyCyclePWM.obj" "adcConfig.obj" "adcPWM.obj" "main.obj" "device\F2837xD_CodeStartBranch.obj" "device\device.obj" 
-	-$(RM) "DutyCyclePWM.d" "adcConfig.d" "adcPWM.d" "main.d" "device\device.d" 
+	-$(RM) "DutyCyclePWM.obj" "adcConfig.obj" "adcPWM.obj" "main.obj" "mpptAlgorithms.obj" "device\F2837xD_CodeStartBranch.obj" "device\device.obj" 
+	-$(RM) "DutyCyclePWM.d" "adcConfig.d" "adcPWM.d" "main.d" "mpptAlgorithms.d" "device\device.d" 
 	-$(RM) "device\F2837xD_CodeStartBranch.d" 
 	-@echo 'Finished clean'
 	-@echo ' '

@@ -15,36 +15,42 @@ C_SRCS += \
 ../DutyCyclePWM.c \
 ../adcConfig.c \
 ../adcPWM.c \
-../main.c 
+../main.c \
+../mpptAlgorithms.c 
 
 C_DEPS += \
 ./DutyCyclePWM.d \
 ./adcConfig.d \
 ./adcPWM.d \
-./main.d 
+./main.d \
+./mpptAlgorithms.d 
 
 OBJS += \
 ./DutyCyclePWM.obj \
 ./adcConfig.obj \
 ./adcPWM.obj \
-./main.obj 
+./main.obj \
+./mpptAlgorithms.obj 
 
 OBJS__QUOTED += \
 "DutyCyclePWM.obj" \
 "adcConfig.obj" \
 "adcPWM.obj" \
-"main.obj" 
+"main.obj" \
+"mpptAlgorithms.obj" 
 
 C_DEPS__QUOTED += \
 "DutyCyclePWM.d" \
 "adcConfig.d" \
 "adcPWM.d" \
-"main.d" 
+"main.d" \
+"mpptAlgorithms.d" 
 
 C_SRCS__QUOTED += \
 "../DutyCyclePWM.c" \
 "../adcConfig.c" \
 "../adcPWM.c" \
-"../main.c" 
+"../main.c" \
+"../mpptAlgorithms.c" 
 
 

@@ -3,7 +3,7 @@
 adcConfig.obj: ../adcConfig.c
 adcConfig.obj: ../adcConfig.h
 adcConfig.obj: ../ProjectFiles.h
-adcConfig.obj: D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/driverlib.h
+adcConfig.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/driverlib.h
 adcConfig.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h
 adcConfig.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/adc.h
 adcConfig.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
@@ -89,7 +89,7 @@ adcConfig.obj: ../ProjectFiles.h
 adcConfig.obj: ../adcPWM.h
 adcConfig.obj: ../mpptAlgorithms.h
 adcConfig.obj: ../DutyCyclePWM.h
-adcConfig.obj: D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h
+adcConfig.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/device.h
 adcConfig.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdio.h
 adcConfig.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdarg.h
 
@@ -99,7 +99,7 @@ adcConfig.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/
 
 ../ProjectFiles.h:
 
-D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/driverlib.h:
+C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/driverlib.h:
 
 C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h:
 
@@ -271,7 +271,7 @@ C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd
 
 ../DutyCyclePWM.h:
 
-D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h:
+C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/device.h:
 
 D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdio.h:
 

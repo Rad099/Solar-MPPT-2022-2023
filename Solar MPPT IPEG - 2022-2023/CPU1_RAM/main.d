@@ -2,7 +2,7 @@
 
 main.obj: ../main.c
 main.obj: ../ProjectFiles.h
-main.obj: D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/driverlib.h
+main.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/driverlib.h
 main.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h
 main.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/adc.h
 main.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdbool.h
@@ -88,7 +88,7 @@ main.obj: ../ProjectFiles.h
 main.obj: ../adcPWM.h
 main.obj: ../mpptAlgorithms.h
 main.obj: ../DutyCyclePWM.h
-main.obj: D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h
+main.obj: C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/device.h
 main.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdio.h
 main.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdarg.h
 
@@ -96,7 +96,7 @@ main.obj: D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdar
 
 ../ProjectFiles.h:
 
-D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/driverlib.h:
+C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/driverlib.h:
 
 C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd/driverlib/inc/hw_memmap.h:
 
@@ -268,7 +268,7 @@ C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/driverlib/f2837xd
 
 ../DutyCyclePWM.h:
 
-D:/Users/Ridwan\ Alrefai/workspace_v12/Solar\ MPPT\ IPEG\ -\ 2022-2023/device/device.h:
+C:/Users/Ridwan\ Alrefai/Desktop/ti/c2000/C2000Ware_4_01_00_00/device_support/f2837xd/common/include/device.h:
 
 D:/ti/ccs1210/ccs/tools/compiler/ti-cgt-c2000_22.6.0.LTS/include/stdio.h:
 

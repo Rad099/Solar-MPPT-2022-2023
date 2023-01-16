@@ -10,6 +10,8 @@
 
 #include "ProjectFiles.h"
 
-void PertandObs(float power_in);
+float calcPower(float voltage, float current);
+
+void PertandObs(float voltage, float current);
 
 #endif /* MPPTALGORITHMS_H_ */

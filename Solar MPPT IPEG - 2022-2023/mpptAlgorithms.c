@@ -1,0 +1,41 @@
+/*
+ * mpptAlgorithms.c
+ *
+ *  Created on: Jan 15, 2023
+ *      Author: Ridwan Alrefai
+ */
+
+#include "mpptAlgorithms.h"
+
+
+float calcPower(float voltage, float current){
+    return voltage*current;
+}
+
+void PertandObs(float voltage, float current) {
+
+   float cur_power;
+
+   cur_power = calcPower(voltage, current);
+   // update_dutyCycle(1, ewpmInfo);
+
+   //delay time;
+
+   prev_power_in = cur_power;
+   cur_power = calcPower(voltage, current);
+
+   if (cur_power > prev_power_in) {
+       PertandObs(voltage, current);
+   }
+
+   else {
+       // update_dutyCycle(0, ewpmInfo);
+
+   }
+
+
+
+
+}
+
+

@@ -7,22 +7,8 @@
 
 #include "DutyCyclePWM.h"
 
-typedef struct
-{
-    uint16_t epwmCompADirection;
-    uint16_t epwmCompBDirection;
-    uint16_t epwmTimerIntCount;
-    uint16_t epwmMaxCompA;
-    uint16_t epwmMinCompA;
-    uint16_t epwmMaxCompB;
-    uint16_t epwmMinCompB;
-} epwmInformation;
-
 
 epwmInformation epwmInfo;
-
-
-
 
 
 void init_dutyCycle_pwm(void) {
@@ -35,13 +21,11 @@ void init_dutyCycle_pwm(void) {
     EPWM_setCounterCompareValue(EPWM2_BASE,
                                 EPWM_COUNTER_COMPARE_A,
                                 50U);
-    EPWM_setCounterCompareValue(EPWM2_BASE,
-                                EPWM_COUNTER_COMPARE_B,
-                                50U);
-    //
+
     // Set-up counter mode
     //
-    EPWM_setTimeBaseCounterMode(EPWM2_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    //EPWM_setTimeBaseCounterMode(EPWM2_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    //EPwm2Regs.TBCTL.bit.CTRMODE = TB_COUNT_UPDOWN;
     EPWM_disablePhaseShiftLoad(EPWM2_BASE);
     EPWM_setClockPrescaler(EPWM2_BASE, EPWM_CLOCK_DIVIDER_1, EPWM_HSCLOCK_DIVIDER_1);
 
@@ -52,9 +36,6 @@ void init_dutyCycle_pwm(void) {
     EPWM_setCounterCompareShadowLoadMode(EPWM2_BASE,
                                          EPWM_COUNTER_COMPARE_A,
                                          EPWM_COMP_LOAD_ON_CNTR_ZERO);
-    EPWM_setCounterCompareShadowLoadMode(EPWM2_BASE,
-                                         EPWM_COUNTER_COMPARE_B,
-                                         EPWM_COMP_LOAD_ON_CNTR_ZERO);
 
     //
     // Set-up action-qualifier module
@@ -63,10 +44,7 @@ void init_dutyCycle_pwm(void) {
                                   EPWM_AQ_OUTPUT_A,
                                   EPWM_AQ_OUTPUT_HIGH,
                                   EPWM_AQ_OUTPUT_ON_TIMEBASE_UP_CMPA);
-    EPWM_setActionQualifierAction(EPWM2_BASE,
-                                  EPWM_AQ_OUTPUT_A,
-                                  EPWM_AQ_OUTPUT_LOW,
-                                  EPWM_AQ_OUTPUT_ON_TIMEBASE_DOWN_CMPB);
+
 
 
     EPWM_setActionQualifierAction(EPWM2_BASE,
@@ -77,6 +55,7 @@ void init_dutyCycle_pwm(void) {
                                       EPWM_AQ_OUTPUT_B,
                                       EPWM_AQ_OUTPUT_HIGH,
                                       EPWM_AQ_OUTPUT_ON_TIMEBASE_PERIOD);
+
     //
     // Interrupt where we will change the Compare Values
     // Select INT on Time base counter zero event,
@@ -96,6 +75,9 @@ void init_dutyCycle_pwm(void) {
 
 }
 
+
+// IN TEST MODE ---- NOT FINALIZED
+
 __interrupt void epwm_duty_ISR(void) {
 
 }
@@ -103,15 +85,47 @@ __interrupt void epwm_duty_ISR(void) {
 
 // IN TEST MODE ---- NOT FINALIZED
 
-void update_dutyCycle(void) {
+void update_dutyCycle(uint16_t direction, epwmInformation *epwmInfo) {
 
     uint16_t compAValue;
-    uint16_t compBValue;
 
     compAValue = EPWM_getCounterCompareValue(EPWM2_BASE, EPWM_COUNTER_COMPARE_A);
-    compBValue = EPWM_getCounterCompareValue(EPWM2_BASE, EPWM_COUNTER_COMPARE_B);
 
 
+    //
+    //  Change the CMPA values every 10th interrupt.
+    //
+    if(epwmInfo->epwmTimerIntCount == 10U) {
+         epwmInfo->epwmTimerIntCount = 0U;
+
+         // increasing CMPA
+         if (direction == 1U) {
+
+             if (compAValue < epwmInfo->epwmMaxCompA) {
+                 EPWM_setCounterCompareValue(EPWM2_BASE, EPWM_COUNTER_COMPARE_A, ++compAValue);
+             }
+
+             // TODO: Else Options
+             // Could stop entire program for safety, or automatically decrease duty
+             // Could keep duty the same and ignore increase request
+
+         }
+
+         // decreasing CMPA
+         else {
+
+             if (compAValue > epwmInfo->epwmMinCompA) {
+                 EPWM_setCounterCompareValue(EPWM2_BASE, EPWM_COUNTER_COMPARE_A, --compAValue);
+             }
+
+             // TODO: Else Options
+             // Could stop entire program for safety, or automatically increase duty
+             // Could keep duty the same and ignore increase request
+         }
+
+
+
+    }
 
 
 
